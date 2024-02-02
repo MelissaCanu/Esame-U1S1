@@ -43,7 +43,7 @@ namespace Esame_U1S1
 
             } while (!inputDataValido); // ciclo finché non si inserisce una data corretta
 
-            //  gestisco controllo formato codice fiscale con if
+            //  gestisco controllo formato codice fiscale 
 
             string codiceFiscale = "";
             do
@@ -56,7 +56,7 @@ namespace Esame_U1S1
                 }
             } while (codiceFiscale.Length != 16); // ciclo finché non si inserisce un codice fiscale corretto
 
-            // aggiungo controllo formato sesso, F, M o X con if 
+            // aggiungo controllo formato sesso
 
             char sesso = ' ';
             do
@@ -69,9 +69,11 @@ namespace Esame_U1S1
                 }
             } while (sesso != 'f' && sesso != 'm' && sesso != 'x'); // ciclo finché non si inserisce un sesso corretto
 
+            // comune di residenza
             Console.WriteLine("Comune di residenza: ");
             string comuneResidenza = Console.ReadLine();
 
+            // reddito annuale
             Console.OutputEncoding = System.Text.Encoding.UTF8; // per visualizzare il simbolo dell'euro
 
             Console.WriteLine("Reddito annuale: ");
@@ -97,8 +99,6 @@ namespace Esame_U1S1
             Console.WriteLine($"Reddito dichiarato: {contribuente.RedditoAnnuale:C}");
             Console.WriteLine($"IMPOSTA DA VERSARE: {impostaDaPagare:C}");
             Console.WriteLine($"==================================================");
-
-            // fine programma readline per visualizzare il risultato
 
             Console.ReadLine();
         }
