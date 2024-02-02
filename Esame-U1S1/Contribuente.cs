@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace Esame_U1S1
 {
+    //creo classe contribuente con le proprietà richieste 
     internal class Contribuente
     {
         public string Nome { get; set; }
@@ -18,6 +19,7 @@ namespace Esame_U1S1
 
         public decimal RedditoAnnuale { get; set; }
 
+        // creo costruttore con parametri per inizializzare le proprietà della classe 
         public Contribuente(string nome, string cognome, DateTime dataNascita, string codiceFiscale, char sesso, string comuneResidenza, decimal redditoAnnuale)
         {
             Nome = nome;
@@ -29,7 +31,7 @@ namespace Esame_U1S1
             RedditoAnnuale = redditoAnnuale;
         }
 
-        // Metodo senza parametri che calcola e ritorna l'imposta sul reddito
+        // metodo senza parametri che calcola e ritorna l'imposta sul reddito
         public decimal CalcolaImposta()
         {
             decimal imposta = 0; // imposta da calcolare
