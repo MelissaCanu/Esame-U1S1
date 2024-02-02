@@ -90,6 +90,7 @@ namespace Esame_U1S1
             Console.WriteLine($"Nat* il: {contribuente.DataNascita.ToString("dd/MM/yyy")} ({contribuente.Sesso})");
             Console.WriteLine($"Residente in: {contribuente.ComuneResidenza}");
             Console.WriteLine($"Codice fiscale: {contribuente.CodiceFiscale}");
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // per visualizzare il simbolo dell'euro
             Console.WriteLine($"Reddito dichiarato: {contribuente.RedditoAnnuale:C}");
             Console.WriteLine($"IMPOSTA DA VERSARE: {impostaDaPagare:C}");
             Console.WriteLine($"==================================================");
