@@ -61,18 +61,21 @@ namespace Esame_U1S1
             char sesso = ' ';
             do
             {
-                Console.WriteLine("Sesso: (F, M, X) ");
+                Console.WriteLine("Sesso: (f, m, x) ");
                 sesso = char.Parse(Console.ReadLine());
-                if (sesso != 'F' && sesso != 'M' && sesso != 'X')
+                if (sesso != 'f' && sesso != 'm' && sesso != 'x')
                 {
-                    Console.WriteLine("Il sesso deve essere F, M o X");
+                    Console.WriteLine("Il sesso deve essere f, m o x");
                 }
-            } while (sesso != 'F' && sesso != 'M' && sesso != 'X'); // ciclo finché non si inserisce un sesso corretto
+            } while (sesso != 'f' && sesso != 'm' && sesso != 'x'); // ciclo finché non si inserisce un sesso corretto
 
             Console.WriteLine("Comune di residenza: ");
             string comuneResidenza = Console.ReadLine();
 
+            Console.OutputEncoding = System.Text.Encoding.UTF8; // per visualizzare il simbolo dell'euro
+
             Console.WriteLine("Reddito annuale: ");
+            Console.WriteLine("€ ");
             decimal redditoAnnuale = decimal.Parse(Console.ReadLine());
 
             // istanzio oggetto contribuente
