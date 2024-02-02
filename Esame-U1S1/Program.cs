@@ -14,13 +14,29 @@ namespace Esame_U1S1
 
             Console.WriteLine("Inserisci i dati del contribuente");
 
-            Console.Write("Nome: ");
-            string nome = Console.ReadLine();
+            string nome = "";
+            do
+            {
+                Console.WriteLine("Nome: ");
+                nome = Console.ReadLine();
+                if (string.IsNullOrEmpty(nome))
+                {
+                    Console.WriteLine("Inserire un valore");
+                }
+            } while (string.IsNullOrEmpty(nome)); // ciclo finché non si inserisce un nome corretto
 
-            Console.WriteLine("Cognome: ");
-            string cognome = Console.ReadLine();
+           string cognome = "";
+            do
+            {
+                Console.WriteLine("Cognome: ");
+                cognome = Console.ReadLine();
+                if (string.IsNullOrEmpty(cognome))
+                {
+                    Console.WriteLine("Inserire un valore");
+                }
+            } while (string.IsNullOrEmpty(cognome)); // ciclo finché non si inserisce un cognome corretto
 
-            // gestisco controllo formato data
+            // data
 
             DateTime dataNascita = DateTime.MinValue;
             bool inputDataValido = false;
@@ -43,20 +59,20 @@ namespace Esame_U1S1
 
             } while (!inputDataValido); // ciclo finché non si inserisce una data corretta
 
-            //  gestisco controllo formato codice fiscale 
+            // codice fiscale
 
             string codiceFiscale = "";
             do
             {
                 Console.WriteLine("Codice fiscale: ");
-                codiceFiscale = Console.ReadLine();
+                codiceFiscale = Console.ReadLine().ToUpper();
                 if (codiceFiscale.Length != 16)
                 {
                     Console.WriteLine("Il codice fiscale deve essere lungo 16 caratteri");
                 }
             } while (codiceFiscale.Length != 16); // ciclo finché non si inserisce un codice fiscale corretto
 
-            // aggiungo controllo formato sesso
+            // sesso
 
             char sesso = ' ';
             do
@@ -70,15 +86,42 @@ namespace Esame_U1S1
             } while (sesso != 'f' && sesso != 'm' && sesso != 'x'); // ciclo finché non si inserisce un sesso corretto
 
             // comune di residenza
-            Console.WriteLine("Comune di residenza: ");
-            string comuneResidenza = Console.ReadLine();
+            string comuneResidenza = "";
+           do
+            {
+                Console.WriteLine("Comune di residenza: ");
+                comuneResidenza = Console.ReadLine();
+                if (string.IsNullOrEmpty(comuneResidenza))
+                {
+                    Console.WriteLine("Inserire un valore");
+                }
+                } while (string.IsNullOrEmpty(comuneResidenza)); // ciclo finché non si inserisce un comune di residenza corretto
+            
+
 
             // reddito annuale
-            Console.OutputEncoding = System.Text.Encoding.UTF8; // per visualizzare il simbolo dell'euro
+            Console.OutputEncoding = System.Text.Encoding.UTF8; 
 
             Console.WriteLine("Reddito annuale: ");
             Console.WriteLine("€ ");
-            decimal redditoAnnuale = decimal.Parse(Console.ReadLine());
+
+            Console.OutputEncoding = System.Text.Encoding.UTF8;
+            decimal redditoAnnuale = 0;
+            do
+            {
+                Console.WriteLine("Reddito annuale: ");
+                string inputRedditoAnnuale = Console.ReadLine();
+                if (string.IsNullOrEmpty(inputRedditoAnnuale))
+                {
+                    Console.WriteLine("Inserire un valore");
+                }
+                else if (!decimal.TryParse(inputRedditoAnnuale, out redditoAnnuale))
+                {
+                    Console.WriteLine("Il reddito annuale deve essere un numero");
+                }
+                } while (redditoAnnuale <= 0); // ciclo finché non si inserisce un reddito annuale corretto
+            
+
 
             // istanzio oggetto contribuente
 
